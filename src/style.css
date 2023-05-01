@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: content-box;
+  font-size: 18px;
 }
 
 .wrapper {
@@ -38,7 +39,7 @@
   padding: 7px;
   border: 1px solid darkcyan;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px;
   height: 23px;
 }
 
@@ -48,7 +49,7 @@
   border: 2px solid darkcyan;
   padding: 7px 30px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 5px;
 }
 
@@ -92,6 +93,11 @@
 .curent-text {
   display: flex;
   flex-direction: column;
+}
+
+.discription {
+  color: grey;
+  font-size: 16px;
 }
 
 .bottom {
