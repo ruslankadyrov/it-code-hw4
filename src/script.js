@@ -1,5 +1,5 @@
 const link =
-  "http://api.weatherstack.com/current?access_key=10abf6b825c6580b068c4fa7355f04dc";
+  "http://api.weatherstack.com/current?access_key=fa13843b5a845d90d96ced7587d61391";
 
 const content = document.querySelector("#weather-content");
 
@@ -19,8 +19,8 @@ let store = {
 };
 
 const fetchData = async () => {
-  const result = await fetch(`${link}&query=${store.city}`);
-  const data = await result.json();
+  // const result = await fetch(`${link}&query=${store.city}`);
+  // const data = await result.json();
 
   console.log(data);
 

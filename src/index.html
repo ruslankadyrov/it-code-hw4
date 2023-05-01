@@ -9,22 +9,56 @@
   <body>
     <div class="wrapper">
       <div class="container">
-        <div class="header">
-          <h1>Погода в городе</h1>
-          <div class="form-input">
-            <input
-              id="city-input"
-              type="text"
-              class="input"
-              name="city"
-              placeholder="City"
-            />
-            <input id="city-submit" type="submit" class="submit" value="OK" />
+        <div class="form-input">
+          <input
+            id="city-input"
+            type="text"
+            class="input"
+            name="city"
+            placeholder="City"
+          />
+
+          <input id="city-submit" type="submit" class="submit" value="OK" />
+        </div>
+
+        <div id="weather-content" class="content">
+          <div class="top">Уфа, sunny</div>
+
+          <div class="current-weather">
+            <div class="indicators">
+              <img src="./images/temp.png" alt="" />
+              <div class="temperature">16°C feels like 15°C</div>
+            </div>
+
+            <div class="current-indicators">
+              <img src="./images/cloud.png" alt="" />
+              <div class="cloud">324%</div>
+            </div>
+
+            <div class="current-indicators">
+              <img src="./images/pressure.png" alt="" />
+              <div class="pressure">393 mmHg</div>
+            </div>
+
+            <div class="current-indicators">
+              <img src="./images/uvIndex.png" alt="" />
+              <div class="uvIndex">4 of 10</div>
+            </div>
+
+            <div class="current-indicators">
+              <img src="./images/humidity.png" alt="" />
+              <div class="humidity">60%</div>
+            </div>
+
+            <div class="current-indicators">
+              <img src="./images/windspeed.png" alt="" />
+              <div class="windspeed">30 km/h</div>
+            </div>
           </div>
         </div>
-        <div id="weather-content" class="content"></div>
+
         <div class="bottom">
-          <!-- <a href="https://vk.com/aku_akage">AKU AKAGE©</a> -->
+          <a href="https://vk.com/aku_akage">AKU AKAGE©</a>
         </div>
       </div>
     </div>

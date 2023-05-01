@@ -26,13 +26,6 @@
   gap: 20px;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 7px;
-}
-
 .form-input {
   display: flex;
   flex-direction: row;
@@ -46,6 +39,17 @@
 .submit {
 }
 .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 7px;
 }
 
 .bottom {
@@ -57,5 +61,5 @@ a:active,
 a:hover,
 a {
   text-decoration: none;
-  color: #666;
+  color: grey;
 }
