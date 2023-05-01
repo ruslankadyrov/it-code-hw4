@@ -3,8 +3,13 @@ const link =
 
 const content = document.querySelector("#weather-content");
 
+const dom = {
+  city: document.querySelector("#city-input"),
+  show: document.querySelector("#city-submit"),
+};
+
 let store = {
-  city: "Ufa",
+  city: "",
   feelslike: 0,
   temperature: 0,
   cloudcover: 0,
@@ -18,45 +23,58 @@ let store = {
   windSpeed: 0,
 };
 
+dom.show.onclick = () => {
+  store.city = dom.city.value;
+  if (store.city) {
+    fetchData();
+  } else {
+    alert("Enter city!");
+  }
+};
+
 const fetchData = async () => {
-  const result = await fetch(`${link}&query=${store.city}`);
-  const data = await result.json();
+  let error = "";
+  try {
+    const result = await fetch(`${link}&query=${store.city}`, {
+      redirect: "manual",
+    });
+    const data = await result.json();
 
-  console.log(data);
+    const {
+      current: {
+        feelslike,
+        temperature,
+        cloudcover,
+        humidity,
+        observation_time: observationTime,
+        pressure,
+        uv_index: uvIndex,
+        visibility,
+        is_day: isDay,
+        weather_descriptions: description,
+        wind_speed: windSpeed,
+      },
+      location: { name },
+    } = data;
 
-  const {
-    current: {
+    store = {
+      ...store,
+      name,
       feelslike,
       temperature,
       cloudcover,
       humidity,
-      observation_time: observationTime,
+      observationTime,
       pressure,
-      uv_index: uvIndex,
+      uvIndex,
       visibility,
-      is_day: isDay,
-      weather_descriptions: description,
-      wind_speed: windSpeed,
-    },
-    location: { name },
-  } = data;
-
-  store = {
-    ...store,
-    name,
-    feelslike,
-    temperature,
-    cloudcover,
-    humidity,
-    observationTime,
-    pressure,
-    uvIndex,
-    visibility,
-    isDay,
-    description: description[0],
-    windSpeed,
-  };
-
+      isDay,
+      description: description[0],
+      windSpeed,
+    };
+  } catch (error) {
+    alert("Сheck the city or try again later!");
+  }
   renderComponent();
 };
 
@@ -120,5 +138,3 @@ const renderComponent = () => {
   `;
   content.innerHTML = wetherHTML;
 };
-
-fetchData();

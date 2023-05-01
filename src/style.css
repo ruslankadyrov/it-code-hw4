@@ -43,7 +43,7 @@
   height: 23px;
 }
 
-.submit {
+#city-submit {
   color: white;
   background-color: darkcyan;
   border: 2px solid darkcyan;
@@ -53,7 +53,7 @@
   border-radius: 5px;
 }
 
-.submit:hover {
+#city-submit:hover {
   background-color: white;
   color: black;
   transition-duration: 0.4s;
