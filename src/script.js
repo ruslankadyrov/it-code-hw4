@@ -75,7 +75,6 @@ const fetchData = async () => {
   } catch (error) {
     catchError = error;
     alert("Сheck the city or try again later!");
-    console.log(catchError);
   }
 
   if (!catchError) {
