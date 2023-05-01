@@ -1,10 +1,10 @@
 const link =
-  "http://api.weatherstack.com/current?access_key=fa13843b5a845d90d96ced7587d61391";
+  "http://api.weatherstack.com/current?access_key=c385ff3e404c8acb735e3cac865f4137";
 
 const content = document.querySelector("#weather-content");
 
 let store = {
-  city: "London",
+  city: "Ufa",
   feelslike: 0,
   temperature: 0,
   cloudcover: 0,
@@ -19,8 +19,8 @@ let store = {
 };
 
 const fetchData = async () => {
-  // const result = await fetch(`${link}&query=${store.city}`);
-  // const data = await result.json();
+  const result = await fetch(`${link}&query=${store.city}`);
+  const data = await result.json();
 
   console.log(data);
 
@@ -36,13 +36,14 @@ const fetchData = async () => {
       visibility,
       is_day: isDay,
       weather_descriptions: description,
-      windSpeed,
+      wind_speed: windSpeed,
     },
     location: { name },
   } = data;
 
   store = {
     ...store,
+    name,
     feelslike,
     temperature,
     cloudcover,
@@ -60,7 +61,64 @@ const fetchData = async () => {
 };
 
 const renderComponent = () => {
-  content.innerHTML = `${store.temperature}°C`;
+  const wetherHTML = `          
+  <div class="weather-top">${store.name}, ${store.description}, ${store.observationTime}</div>
+
+  <div class="current-weather">
+    <div class="weather-column">
+      <div class="current-indicators">
+        <img src="./images/temp.png" alt="Temperature" />
+        <div class="curent-text">
+          <div class="indicators-text">${store.temperature}°C feels like ${store.feelslike}°C</div>
+          <div class="discription">Temperature</div>
+        </div>
+      </div>
+
+      <div class="current-indicators">
+        <img src="./images/cloud.png" alt="Cloudcover" />
+        <div class="curent-text">
+          <div class="indicators-text">${store.cloudcover}%</div>
+          <div class="discription">Cloudcover</div>
+        </div>
+      </div>
+
+      <div class="current-indicators">
+        <img src="./images/pressure.png" alt="Pressure" />
+        <div class="curent-text">
+          <div class="indicators-text">${store.pressure} mmHg</div>
+          <div class="discription">Pressure</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="weather-column">
+      <div class="current-indicators">
+        <img src="./images/uvIndex.png" alt="UV Index" />
+        <div class="curent-text">
+          <div class="indicators-text">${store.uvIndex} of 10</div>
+          <div class="discription">UV Index</div>
+        </div>
+      </div>
+
+      <div class="current-indicators">
+        <img src="./images/humidity.png" alt="Humidity" />
+        <div class="curent-text">
+          <div class="indicators-text">${store.humidity}%</div>
+          <div class="discription">Humidity</div>
+        </div>
+      </div>
+
+      <div class="current-indicators">
+        <img src="./images/windspeed.png" alt="Wind speed" />
+        <div class="curent-text">
+          <div class="indicators-text">${store.windSpeed} km/h</div>
+          <div class="discription">Wind speed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+  content.innerHTML = wetherHTML;
 };
 
 fetchData();
