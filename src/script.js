@@ -19,7 +19,7 @@ let store = {
   uvIndex: 0,
   visibility: 0,
   isDay: "yes",
-  description: "",
+  description: "undefined",
   windSpeed: 0,
 };
 
@@ -33,7 +33,7 @@ dom.show.onclick = () => {
 };
 
 const fetchData = async () => {
-  let error = "";
+  let catchError;
   try {
     const result = await fetch(`${link}&query=${store.city}`, {
       redirect: "manual",
@@ -73,9 +73,14 @@ const fetchData = async () => {
       windSpeed,
     };
   } catch (error) {
+    catchError = error;
     alert("Сheck the city or try again later!");
+    console.log(catchError);
   }
-  renderComponent();
+
+  if (!catchError) {
+    renderComponent();
+  }
 };
 
 const renderComponent = () => {
