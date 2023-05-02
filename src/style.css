@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-size: 18px;
+}
+
+.wrapper {
+  background-color: azure;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: white;
+  width: 30vw;
+  padding: 20px;
+  border: 2px solid darkcyan;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: row;
+
+  gap: 7px;
+}
+
+#city-input {
+  flex-grow: 1;
+  padding: 7px;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  font-size: 18px;
+  height: 23px;
+}
+
+#city-submit {
+  color: white;
+  background-color: darkcyan;
+  border: 2px solid darkcyan;
+  padding: 7px 30px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+#city-submit:hover {
+  background-color: white;
+  color: black;
+  transition-duration: 0.4s;
+}
+
+.weather-top {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 7px;
+}
+
+.weather-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.current-indicators {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}
+
+.curent-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.discription {
+  color: grey;
+  font-size: 16px;
+}
+
+.bottom {
+  display: flex;
+  color: grey;
+  justify-content: center;
+}
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: grey;
+}
